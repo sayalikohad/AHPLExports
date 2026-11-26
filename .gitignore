@@ -1,0 +1,30 @@
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Java Backend
+backend/target/
+*.class
+*.log
+
+# React Frontend
+node_modules/
+dist/
+.vite/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Sensitive Configuration
+application-local.properties
+application-local.yml
+*.pem
+*.key
+*.jks
+
+# Operating System
+.DS_Store
+Thumbs.db
