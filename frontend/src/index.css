@@ -83,7 +83,7 @@ img {
   justify-content: space-between;
   align-items: center;
 
-  min-height: clamp(80px, 5.55vw, 140px);
+  min-height: clamp(68px, 4.5vw, 115px);
 
   padding-left: clamp(24px, 2.8vw, 80px);
   padding-right: clamp(24px, 2.8vw, 80px);
@@ -743,7 +743,7 @@ img {
 .about-title {
   color: #050505;
 
-  font-size: clamp(36px, 3.47vw, 105px);
+  font-size: clamp(32px, 2.8vw, 84px);
   font-weight: 500;
 
   line-height: 1.25;
