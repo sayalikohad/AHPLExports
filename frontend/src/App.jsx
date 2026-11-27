@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import About from "./components/About";
+import Statistics from "./components/Statistics";
+import Products from "./components/Products";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -38,6 +42,12 @@ function App() {
 
                 <Hero company={company} />
 
+                <About company={company} />
+
+                <Statistics />
+
+                <Products />
+
                 {error && (
 
                     <p className="bg-red-50 text-red-600
@@ -48,6 +58,8 @@ function App() {
                 )}
 
             </main>
+
+            <Footer />
 
         </div>
 
