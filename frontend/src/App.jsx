@@ -6,6 +6,11 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Statistics from "./components/Statistics";
 import Products from "./components/Products";
+import Certifications from "./components/Certifications";
+import WhyChooseUs from "./components/WhyChooseUs";
+import Testimonials from "./components/Testimonials";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
@@ -19,9 +24,11 @@ function App() {
             .then(response => {
 
                 if (!response.ok) {
+
                     throw new Error(
                         "Java backend connection failed"
                     );
+
                 }
 
                 return response.json();
@@ -48,10 +55,19 @@ function App() {
 
                 <Products />
 
+                <Certifications />
+
+                <WhyChooseUs />
+
+                <Testimonials />
+
+                <Blog />
+
+                <Contact />
+
                 {error && (
 
-                    <p className="bg-red-50 text-red-600
-                                  text-center p-3">
+                    <p className="bg-red-50 text-red-600 text-center p-3">
                         {error}
                     </p>
 

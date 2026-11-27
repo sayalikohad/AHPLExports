@@ -1,15 +1,8 @@
 
 import { useEffect, useRef, useState } from "react";
-import {
-    Facebook,
-    Instagram,
-    Linkedin,
-    Phone,
-    Mail,
-    MapPin
-} from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-white.png";
 
 const quickLinks = [
     { name: "Home", href: "#home" },
@@ -31,7 +24,6 @@ const categories = [
     "Customized Sourcing"
 ];
 
-// Replace empty values with actual company details
 const contact = {
     address: "Nagpur, Maharashtra, India",
     phone: "",
@@ -41,6 +33,86 @@ const contact = {
     linkedin: "",
     twitter: ""
 };
+
+// Facebook Icon
+function FacebookIcon() {
+    return (
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+        >
+            <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v9h4v-9h3l1-4h-4V9c0-.7.3-1 1-1z" />
+        </svg>
+    );
+}
+
+// Instagram Icon
+function InstagramIcon() {
+    return (
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+        >
+            <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+            />
+
+            <circle cx="12" cy="12" r="4" />
+
+            <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+            />
+        </svg>
+    );
+}
+
+// LinkedIn Icon
+function LinkedinIcon() {
+    return (
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+        >
+            <circle cx="5" cy="5" r="2" />
+
+            <path d="M3 9h4v12H3zM10 9h4v2c1-2 3-2.5 4-2.5 3 0 4 2 4 5V21h-4v-7c0-1.5-.5-2-2-2s-2 1-2 2v7h-4z" />
+        </svg>
+    );
+}
+
+// X Icon
+function XIcon() {
+    return (
+        <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+        >
+            <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.6L5.2 22H2l7.4-8.5L1.8 2h6.5l4.6 7zM17.8 20h1.7L7.3 4H5.5z" />
+        </svg>
+    );
+}
 
 export default function Footer() {
 
@@ -72,25 +144,25 @@ export default function Footer() {
     const socialLinks = [
         {
             name: "Facebook",
-            icon: <Facebook size={16} />,
+            icon: <FacebookIcon />,
             className: "social-facebook",
             href: contact.facebook
         },
         {
             name: "Instagram",
-            icon: <Instagram size={16} />,
+            icon: <InstagramIcon />,
             className: "social-instagram",
             href: contact.instagram
         },
         {
             name: "LinkedIn",
-            icon: <Linkedin size={16} />,
+            icon: <LinkedinIcon />,
             className: "social-linkedin",
             href: contact.linkedin
         },
         {
             name: "X",
-            icon: <span>𝕏</span>,
+            icon: <XIcon />,
             className: "social-twitter",
             href: contact.twitter
         }
@@ -137,28 +209,39 @@ export default function Footer() {
 
                         </p>
 
-                        {/* Social Media */}
-
                         <div className="footer-socials">
 
-                            {socialLinks.map((social) => (
+                            {socialLinks.map((social) => {
 
-                                <a
-                                    key={social.name}
-                                    href={social.href || undefined}
-                                    target={social.href ? "_blank" : undefined}
-                                    rel="noopener noreferrer"
-                                    aria-label={social.name}
-                                    className={`footer-social-icon ${
-                                        social.className
-                                    }`}
-                                >
+                                const className =
+                                    `footer-social-icon ${social.className}`;
 
-                                    {social.icon}
+                                return social.href ? (
 
-                                </a>
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={social.name}
+                                        className={className}
+                                    >
+                                        {social.icon}
+                                    </a>
 
-                            ))}
+                                ) : (
+
+                                    <span
+                                        key={social.name}
+                                        title={social.name}
+                                        className={className}
+                                    >
+                                        {social.icon}
+                                    </span>
+
+                                );
+
+                            })}
 
                         </div>
 
@@ -231,9 +314,11 @@ export default function Footer() {
                             </div>
 
                             <a
-                                href={contact.phone
-                                    ? `tel:${contact.phone.replace(/\s/g, "")}`
-                                    : undefined}
+                                href={
+                                    contact.phone
+                                        ? `tel:${contact.phone.replace(/\s/g, "")}`
+                                        : undefined
+                                }
                                 className="footer-contact-link"
                             >
 
@@ -246,9 +331,11 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href={contact.email
-                                    ? `mailto:${contact.email}`
-                                    : undefined}
+                                href={
+                                    contact.email
+                                        ? `mailto:${contact.email}`
+                                        : undefined
+                                }
                                 className="footer-contact-link"
                             >
 

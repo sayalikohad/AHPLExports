@@ -93,9 +93,10 @@ img {
 }
 
 .navbar-logo {
-  width: clamp(135px, 9.5vw, 250px);
+  width: clamp(130px, 9.4vw, 200px);
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 .desktop-navigation {
@@ -1479,18 +1480,20 @@ img {
 /* ======================================
    COMPANY LOGO
 ====================================== */
-
 .footer-logo {
-  width: clamp(140px, 11.8vw, 300px);
+  display: block;
+  width: clamp(140px, 11.8vw, 230px);
+  max-width: 100%;
   height: auto;
 
   object-fit: contain;
+  object-position: left center;
 
   filter: brightness(0) invert(1);
+  image-rendering: auto;
 
   margin-bottom: clamp(28px, 2.5vw, 55px);
 }
-
 /* ======================================
    ABOUT COMPANY
 ====================================== */
@@ -1895,6 +1898,1898 @@ img {
   .footer-social-icon,
   .footer-column li a {
     transition: none !important;
+  }
+
+}
+
+
+/* =========================================
+   CERTIFICATIONS & MEMBERSHIP SECTION
+========================================= */
+
+.certification-section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+
+  padding: clamp(55px, 5.2vw, 125px) 0;
+
+  overflow: hidden;
+}
+
+.certification-heading {
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(25px);
+
+  transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+}
+
+.certification-label {
+  display: block;
+
+  color: #009fd7;
+
+  font-size: clamp(13px, 1.05vw, 24px);
+  font-weight: 500;
+
+  margin-bottom: clamp(16px, 1.5vw, 35px);
+}
+
+.certification-title {
+  color: #080808;
+
+  font-size: clamp(28px, 3.47vw, 84px);
+  font-weight: 500;
+  line-height: 1.2;
+
+  letter-spacing: -0.035em;
+
+  margin: 0;
+}
+
+/* =========================================
+   CERTIFICATION LOGOS GRID
+========================================= */
+
+.certification-grid {
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  align-items: center;
+  justify-items: center;
+
+  gap: clamp(25px, 3.2vw, 80px);
+
+  margin-top: clamp(40px, 3.5vw, 90px);
+}
+
+.certification-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: clamp(100px, 10.4vw, 230px);
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+
+  transition-delay: var(--animation-delay);
+}
+
+.certification-logo {
+  display: block;
+
+  width: 100%;
+  max-width: clamp(120px, 10.4vw, 250px);
+
+  height: clamp(90px, 9.7vw, 220px);
+
+  object-fit: contain;
+
+  transition: transform 0.4s ease;
+}
+
+.certification-item:hover .certification-logo {
+  transform: scale(1.08);
+}
+
+.certification-visible .certification-heading,
+.certification-visible .certification-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   WHY CHOOSE AHPL SECTION
+========================================= */
+
+.why-section {
+  position: relative;
+  width: 100%;
+
+  background: #fff4ee;
+
+  padding: clamp(60px, 4.8vw, 120px) 0;
+
+  overflow: hidden;
+}
+
+.why-layout {
+  display: grid;
+
+  grid-template-columns:
+        minmax(0, 40%)
+        minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(35px, 3.2vw, 90px);
+}
+
+
+/* =========================================
+   LEFT SIDE CONTENT
+========================================= */
+
+.why-content {
+  opacity: 0;
+
+  transform: translateX(-35px);
+
+  transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+}
+
+.why-label {
+  display: block;
+
+  color: #009fd7;
+
+  font-size: clamp(13px, 1.05vw, 24px);
+  font-weight: 500;
+
+  margin-bottom: clamp(12px, 1vw, 25px);
+}
+
+.why-title {
+  color: #080808;
+
+  font-size: clamp(32px, 3.47vw, 84px);
+  font-weight: 500;
+
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+
+  margin: 0 0 clamp(20px, 1.5vw, 40px);
+}
+
+.why-description {
+  color: #777777;
+
+  font-size: clamp(14px, 1.18vw, 28px);
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  max-width: 100%;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   FEATURE CARDS GRID
+========================================= */
+
+.why-cards {
+  display: grid;
+
+  grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+  gap: clamp(16px, 1.4vw, 35px);
+
+  align-items: stretch;
+}
+
+.why-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  min-height: clamp(220px, 18.1vw, 440px);
+
+  background: #ffffff;
+
+  border: 1px solid transparent;
+  border-radius: clamp(18px, 1.4vw, 35px);
+
+  padding: clamp(18px, 1.45vw, 38px);
+
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  transition:
+          opacity 0.8s ease var(--animation-delay),
+          transform 0.8s ease var(--animation-delay),
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+}
+
+.why-visible .why-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.why-visible .why-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-visible .why-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #ff205620;
+
+  box-shadow:
+          0 12px 30px rgba(255, 32, 86, 0.08);
+
+  transition-delay: 0ms;
+}
+
+
+/* =========================================
+   FEATURE CARD ICON
+========================================= */
+
+.why-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(38px, 3vw, 75px);
+  height: clamp(38px, 3vw, 75px);
+
+  color: #ff2056;
+  background: #fff1e9;
+
+  border-radius: 50%;
+
+  margin-bottom: clamp(17px, 1.4vw, 32px);
+
+  transition:
+          color 0.3s ease,
+          background 0.3s ease,
+          transform 0.3s ease;
+}
+
+.why-card-icon svg {
+  width: 55%;
+  height: 55%;
+}
+
+.why-card:hover .why-card-icon {
+  background: #ff2056;
+  color: #ffffff;
+
+  transform: rotate(-8deg);
+}
+
+
+/* =========================================
+   FEATURE CARD CONTENT
+========================================= */
+
+.why-card-title {
+  color: #080808;
+
+  font-size: clamp(16px, 1.4vw, 34px);
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  min-height: 2.8em;
+
+  margin: 0 0 clamp(12px, 1.15vw, 25px);
+}
+
+.why-card-description {
+  color: #333333;
+
+  font-size: clamp(13px, 1.05vw, 26px);
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   LARGE DESKTOP / 24-INCH MONITOR
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .why-layout {
+    gap: 3.2vw;
+  }
+
+  .why-card {
+    padding: 1.45vw;
+  }
+
+  .certification-grid {
+    gap: 3.2vw;
+  }
+
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1023px) {
+
+  .certification-section {
+    padding: 60px 0;
+  }
+
+  .certification-title {
+    font-size: clamp(30px, 4.5vw, 45px);
+  }
+
+  .certification-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+    margin-top: 35px;
+  }
+
+  .certification-logo {
+    max-width: 140px;
+    height: 115px;
+  }
+
+  .why-section {
+    padding: 60px 0;
+  }
+
+  .why-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .why-title {
+    font-size: clamp(32px, 4.5vw, 48px);
+    max-width: 650px;
+  }
+
+  .why-description {
+    font-size: 16px;
+    max-width: 750px;
+  }
+
+  .why-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .why-card {
+    min-height: 230px;
+    padding: 22px;
+  }
+
+  .why-card-title {
+    font-size: 18px;
+  }
+
+  .why-card-description {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 639px) {
+
+  .certification-section {
+    padding: 45px 0;
+  }
+
+  .certification-label {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .certification-title {
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.3;
+  }
+
+  .certification-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px 15px;
+    margin-top: 30px;
+  }
+
+  .certification-item {
+    min-height: 85px;
+  }
+
+  .certification-logo {
+    max-width: 100px;
+    height: 80px;
+  }
+
+  .why-section {
+    padding: 45px 0;
+  }
+
+  .why-layout {
+    gap: 30px;
+  }
+
+  .why-title {
+    font-size: clamp(29px, 7.5vw, 38px);
+
+    line-height: 1.25;
+
+    margin-bottom: 16px;
+  }
+
+  .why-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .why-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .why-card {
+    min-height: 210px;
+    border-radius: 15px;
+
+    padding: 16px;
+  }
+
+  .why-card-icon {
+    width: 38px;
+    height: 38px;
+
+    margin-bottom: 14px;
+  }
+
+  .why-card-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .why-card-description {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .why-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .why-card-title {
+    min-height: auto;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .certification-heading,
+  .certification-item,
+  .why-content,
+  .why-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .certification-logo,
+  .why-card-icon {
+    transform: none !important;
+    transition: none !important;
+  }
+
+}
+
+
+/* =========================================
+   CUSTOMER TESTIMONIALS SECTION
+========================================= */
+
+.testimonials-section {
+  position: relative;
+  width: 100%;
+
+  background: #ffffff;
+
+  padding: clamp(55px, 5vw, 120px) 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.testimonials-heading {
+  text-align: center;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+}
+
+.testimonials-label {
+  display: block;
+
+  color: #009fd7;
+
+  font-size: clamp(13px, 0.95vw, 20px);
+
+  font-weight: 500;
+
+  margin-bottom: clamp(12px, 1vw, 22px);
+}
+
+.testimonials-title {
+  color: #080808;
+
+  font-size: clamp(30px, 3.47vw, 84px);
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.035em;
+
+  margin: 0 0 18px;
+}
+
+.testimonials-description {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  color: #777777;
+
+  font-size: clamp(13px, 1.05vw, 23px);
+
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   TESTIMONIAL SLIDER
+========================================= */
+
+.testimonials-slider {
+  width: 100%;
+
+  margin-top: clamp(35px, 3vw, 75px);
+}
+
+.testimonials-viewport {
+  width: 100%;
+
+  overflow: hidden;
+
+  padding-top: 8px;
+
+  padding-bottom: 8px;
+}
+
+.testimonials-track {
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 20px;
+
+  width: 100%;
+
+  transition: transform 0.65s ease;
+
+  will-change: transform;
+}
+
+
+/* =========================================
+   TESTIMONIAL CARD
+========================================= */
+
+.testimonial-card {
+  flex: 0 0 calc(
+          (100% - ((var(--visible-cards) - 1) * 20px))
+          / var(--visible-cards)
+  );
+
+  box-sizing: border-box;
+
+  min-width: 0;
+
+  min-height: clamp(260px, 18.5vw, 420px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #f3f3f3;
+
+  border-radius: 30px 30px 30px 0;
+
+  border-bottom: 3px solid #ff2056;
+
+  padding: clamp(20px, 1.5vw, 35px);
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+          opacity 0.7s ease var(--animation-delay),
+          transform 0.7s ease var(--animation-delay),
+          box-shadow 0.3s ease;
+}
+
+
+/* =========================================
+   SCROLL ANIMATION
+========================================= */
+
+.testimonials-visible .testimonials-heading,
+.testimonials-visible .testimonial-card {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.testimonials-visible .testimonial-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 20px #0000000d;
+
+  transition-delay: 0ms;
+}
+
+
+/* =========================================
+   STAR RATING
+========================================= */
+
+.testimonial-stars {
+  color: #ffb800;
+
+  font-size: clamp(15px, 1.1vw, 23px);
+
+  letter-spacing: 2px;
+
+  line-height: 1;
+
+  margin-bottom: clamp(18px, 1.4vw, 30px);
+}
+
+
+/* =========================================
+   CUSTOMER REVIEW
+========================================= */
+
+.testimonial-review {
+  flex: 1;
+
+  color: #555555;
+
+  font-size: clamp(13px, 0.95vw, 21px);
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  margin: 0 0 22px;
+}
+
+
+/* =========================================
+   CUSTOMER PROFILE
+========================================= */
+
+.testimonial-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(10px, 0.9vw, 20px);
+
+  margin-top: auto;
+}
+
+.testimonial-avatar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: clamp(45px, 3.8vw, 85px);
+
+  height: clamp(45px, 3.8vw, 85px);
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+          135deg,
+          #ff8aa8,
+          #ff2056
+  );
+
+  color: #ffffff;
+
+  font-size: clamp(14px, 1.1vw, 24px);
+
+  font-weight: 600;
+
+  overflow: hidden;
+}
+
+.testimonial-user-info {
+  min-width: 0;
+}
+
+.testimonial-user-info h3 {
+  color: #111111;
+
+  font-size: clamp(14px, 1vw, 23px);
+
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  margin: 0 0 4px;
+}
+
+.testimonial-user-info span {
+  display: block;
+
+  color: #777777;
+
+  font-size: clamp(11px, 0.8vw, 17px);
+
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   PAGINATION DOTS
+========================================= */
+
+.testimonials-dots {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: clamp(15px, 1.5vw, 30px);
+}
+
+.testimonial-dot {
+  position: relative;
+
+  width: 10px;
+
+  height: 10px;
+
+  padding: 0;
+
+  border: 1px solid #ff2056;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+          background 0.3s ease,
+          transform 0.3s ease;
+}
+
+.testimonial-dot::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+}
+
+.testimonial-dot.active {
+  width: 10px;
+
+  height: 10px;
+
+  background: #ff2056;
+}
+
+.testimonial-dot:hover {
+  transform: scale(1.15);
+}
+
+.testimonial-dot:focus-visible {
+  outline: 2px solid #192749;
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================
+   LARGE DESKTOP / 24-INCH SCREEN
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .testimonials-heading {
+    max-width: 1100px;
+  }
+
+  .testimonials-description {
+    max-width: 900px;
+  }
+
+  .testimonial-card {
+    padding: clamp(24px, 1.5vw, 35px);
+  }
+
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1023px) {
+
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .testimonials-title {
+    font-size: clamp(30px, 4.5vw, 45px);
+  }
+
+  .testimonials-description {
+    font-size: 15px;
+  }
+
+  .testimonial-card {
+    min-height: 270px;
+
+    padding: 24px;
+  }
+
+  .testimonial-review {
+    font-size: 14px;
+  }
+
+  .testimonial-avatar {
+    width: 50px;
+
+    height: 50px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 639px) {
+
+  .testimonials-section {
+    padding: 45px 0;
+  }
+
+  .testimonials-label {
+    font-size: 13px;
+
+    margin-bottom: 10px;
+  }
+
+  .testimonials-title {
+    font-size: clamp(27px, 7vw, 36px);
+
+    line-height: 1.25;
+
+    margin-bottom: 15px;
+  }
+
+  .testimonials-description {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .testimonials-slider {
+    margin-top: 28px;
+  }
+
+  .testimonial-card {
+    min-height: 250px;
+
+    padding: 22px;
+
+    border-radius: 22px 22px 22px 0;
+  }
+
+  .testimonial-review {
+    font-size: 14px;
+
+    margin-bottom: 20px;
+  }
+
+  .testimonial-stars {
+    font-size: 16px;
+
+    margin-bottom: 18px;
+  }
+
+  .testimonial-avatar {
+    width: 45px;
+
+    height: 45px;
+
+    font-size: 14px;
+  }
+
+  .testimonial-user-info h3 {
+    font-size: 14px;
+  }
+
+  .testimonial-user-info span {
+    font-size: 11px;
+  }
+
+  .testimonials-dots {
+    margin-top: 18px;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .testimonials-heading,
+  .testimonial-card {
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    transition: none !important;
+
+  }
+
+  .testimonials-track,
+  .testimonial-dot {
+
+    transition: none !important;
+
+  }
+
+}
+
+/* =========================================
+   BLOG SECTION
+========================================= */
+
+.blog-section {
+  width: 100%;
+  padding: clamp(30px, 3vw, 110px) 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.blog-heading {
+  text-align: center;
+  margin: 0 auto clamp(28px, 2.5vw, 48px);
+  max-width: 860px;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.blog-label {
+  display: inline-block;
+  color: #26a6df;
+  font-size: clamp(12px, 0.85vw, 16px);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.blog-title {
+  margin: 0;
+  color: #111111;
+  font-size: clamp(28px, 2.9vw, 54px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.blog-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+          opacity 0.7s ease var(--blog-delay),
+          transform 0.7s ease var(--blog-delay),
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  border-color: #ffd7e0;
+}
+
+.blog-image-wrap {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  background: #f3f3f3;
+  padding: 6px;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.blog-card-content {
+  padding: 14px 14px 18px;
+}
+
+.blog-card-title {
+  margin: 0 0 10px;
+  color: #1b1b1b;
+  font-size: clamp(15px, 1.05vw, 20px);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.blog-card-description {
+  margin: 0 0 16px;
+  color: #6f6f6f;
+  font-size: clamp(12px, 0.92vw, 15px);
+  line-height: 1.6;
+}
+
+.blog-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #ff2c63;
+  font-size: 13px;
+  font-weight: 500;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.blog-read-more:hover {
+  gap: 10px;
+  color: #e61d56;
+}
+
+/* Reveal Animation */
+.blog-visible .blog-heading,
+.blog-visible .blog-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Large desktop */
+@media (min-width: 1600px) {
+  .blog-grid {
+    gap: 28px;
+  }
+
+  .blog-image-wrap {
+    height: 210px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-image-wrap {
+    height: 190px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+  .blog-section {
+    padding: 45px 0;
+  }
+
+  .blog-heading {
+    margin-bottom: 24px;
+  }
+
+  .blog-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .blog-image-wrap {
+    height: 185px;
+  }
+
+  .blog-card-content {
+    padding: 14px 14px 16px;
+  }
+}
+
+
+/* Blog Card Equal Alignment */
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+}
+
+/* Blog Image */
+
+.blog-image-wrap {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+
+  padding: 0;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.05);
+}
+
+/* Blog Content */
+
+.blog-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  flex: 1;
+
+  padding: 14px 2px 8px;
+}
+
+.blog-card-title {
+  font-size: clamp(16px, 1.3vw, 26px);
+  font-weight: 500;
+  line-height: 1.35;
+  color: #192749;
+  margin-bottom: 14px;
+}
+
+.blog-card-description {
+  font-size: clamp(13px, 1vw, 19px);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* Equal Bottom Button Alignment */
+
+.blog-read-more {
+  margin-top: auto;
+  font-size: clamp(13px, 0.9vw, 18px);
+  color: #ff2056;
+}
+
+/* Card Hover Animation */
+
+.blog-visible .blog-card:hover {
+  transform: translateY(-6px);
+  transition-delay: 0ms;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 639px) {
+
+  .blog-card {
+    padding: 10px;
+  }
+
+  .blog-card-title {
+    font-size: 18px;
+  }
+
+  .blog-card-description {
+    font-size: 14px;
+  }
+
+  .blog-image-wrap {
+    aspect-ratio: 2 / 1;
+  }
+
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .blog-heading,
+  .blog-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .blog-image,
+  .blog-read-more {
+    transition: none !important;
+  }
+
+  .blog-card:hover .blog-image {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================
+   CONTACT / REQUEST A QUOTE SECTION
+========================================= */
+
+.contact-section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+
+  padding-top: clamp(45px, 3.5vw, 85px);
+  padding-bottom: clamp(55px, 4vw, 100px);
+
+  overflow: hidden;
+  isolation: isolate;
+  scroll-margin-top: 30px;
+}
+
+
+/* =========================================
+   BACKGROUND IMAGE
+========================================= */
+
+.contact-background {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 78%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -2;
+}
+
+.contact-overlay {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 78%;
+
+  background: rgba(12, 35, 67, 0.78);
+
+  z-index: -1;
+}
+
+
+/* =========================================
+   CONTACT GRID
+========================================= */
+
+.contact-layout {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(0, 0.95fr);
+
+  align-items: start;
+
+  gap: clamp(45px, 5vw, 120px);
+}
+
+
+/* =========================================
+   LEFT SIDE CONTENT
+========================================= */
+
+.contact-content {
+  padding-top: clamp(75px, 7vw, 160px);
+
+  opacity: 0;
+
+  transform: translateX(-40px);
+
+  transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+}
+
+.contact-label {
+  display: block;
+
+  color: #ff2056;
+
+  font-size: clamp(14px, 1.05vw, 24px);
+  font-weight: 500;
+
+  margin-bottom: clamp(18px, 1.4vw, 35px);
+}
+
+.contact-title {
+  color: #ffffff;
+
+  font-size: clamp(34px, 3.5vw, 84px);
+
+  font-weight: 500;
+  line-height: 1.25;
+
+  letter-spacing: -0.025em;
+
+  max-width: 850px;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   CONTACT FORM CARD
+========================================= */
+
+.contact-form-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e5e5;
+
+  padding: clamp(32px, 4vw, 85px);
+
+  border-radius: 2px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  transition:
+          opacity 0.9s ease 0.2s,
+          transform 0.9s ease 0.2s;
+}
+
+.contact-form-title {
+  color: #192749;
+
+  font-size: clamp(23px, 2vw, 42px);
+
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  margin: 0 0 20px;
+}
+
+.contact-divider {
+  width: 100%;
+  height: 1px;
+
+  background: #e5e5e5;
+
+  margin-bottom: clamp(24px, 2vw, 40px);
+}
+
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.contact-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: clamp(15px, 1.25vw, 28px);
+}
+
+.contact-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.contact-field label {
+  color: #111111;
+
+  font-size: clamp(13px, 1vw, 21px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.contact-field input,
+.contact-field textarea {
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: #fcfcfc;
+
+  border: 1px solid #d9d9d9;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  color: #192749;
+
+  font-family: inherit;
+
+  font-size: clamp(13px, 0.95vw, 19px);
+
+  font-weight: 400;
+
+  padding: clamp(12px, 1vw, 22px);
+
+  transition:
+          border-color 0.25s ease,
+          box-shadow 0.25s ease;
+}
+
+.contact-field input {
+  min-height: clamp(45px, 3.2vw, 75px);
+}
+
+.contact-field textarea {
+  min-height: clamp(100px, 6.5vw, 180px);
+
+  resize: vertical;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #929292;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: #ff2056;
+
+  box-shadow: 0 0 0 3px rgba(255, 32, 86, 0.08);
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.contact-submit {
+  align-self: flex-start;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  background: #ff2056;
+
+  color: #ffffff;
+
+  border: none;
+
+  border-radius: 999px;
+
+  padding: clamp(12px, 0.9vw, 20px)
+  clamp(22px, 1.7vw, 40px);
+
+  font-family: inherit;
+
+  font-size: clamp(13px, 1vw, 20px);
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  margin-top: 10px;
+
+  transition:
+          background 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+}
+
+.contact-submit:hover:not(:disabled) {
+  background: #e8174a;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(255, 32, 86, 0.2);
+}
+
+.contact-submit:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid #192749;
+
+  outline-offset: 4px;
+}
+
+.contact-submit .button-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: clamp(22px, 1.5vw, 32px);
+  height: clamp(22px, 1.5vw, 32px);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #ff2056;
+}
+
+
+/* =========================================
+   FORM SUCCESS & ERROR MESSAGES
+========================================= */
+
+.contact-success,
+.contact-error {
+  padding: 12px 15px;
+
+  border-radius: 6px;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  margin: 0;
+}
+
+.contact-success {
+  background: #ecfdf3;
+
+  color: #15803d;
+}
+
+.contact-error {
+  background: #fff0f0;
+
+  color: #dc2626;
+}
+
+
+/* =========================================
+   SCROLL REVEAL ANIMATION
+========================================= */
+
+.contact-visible .contact-content {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.contact-visible .contact-form-card {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   LARGE DESKTOP / 24-INCH SCREEN
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .contact-layout {
+    gap: 5vw;
+  }
+
+  .contact-form-card {
+    padding: clamp(55px, 4vw, 85px);
+  }
+
+  .contact-title {
+    max-width: 850px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1023px) {
+
+  .contact-section {
+    padding: 50px 0;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+  }
+
+  .contact-content {
+    padding-top: 55px;
+  }
+
+  .contact-title {
+    font-size: clamp(28px, 4.2vw, 44px);
+  }
+
+  .contact-form-card {
+    padding: 28px;
+  }
+
+  .contact-form-title {
+    font-size: 25px;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .contact-section {
+    padding: 45px 0 35px;
+  }
+
+  .contact-background,
+  .contact-overlay {
+    height: 380px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .contact-content {
+    padding-top: 10px;
+  }
+
+  .contact-label {
+    font-size: 14px;
+
+    margin-bottom: 12px;
+  }
+
+  .contact-title {
+    font-size: clamp(30px, 7vw, 42px);
+
+    line-height: 1.3;
+
+    max-width: 100%;
+  }
+
+  .contact-form-card {
+    padding: 25px;
+
+    border-radius: 8px;
+  }
+
+  .contact-form-title {
+    font-size: 24px;
+
+    margin-bottom: 16px;
+  }
+
+  .contact-form {
+    gap: 18px;
+  }
+
+  .contact-field label {
+    font-size: 14px;
+  }
+
+  .contact-field input {
+    min-height: 46px;
+  }
+
+  .contact-field textarea {
+    min-height: 110px;
+  }
+
+  .contact-submit {
+    font-size: 14px;
+
+    padding: 12px 22px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .contact-form-card {
+    padding: 20px;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-content,
+  .contact-form-card {
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    transition: none !important;
+
+  }
+
+  .contact-submit {
+    transition: none !important;
+
+    transform: none !important;
   }
 
 }
