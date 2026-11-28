@@ -18,10 +18,6 @@ const categories = [
     "Textiles & Garments",
     "Industrial Materials",
     "Chemicals & Raw Materials",
-    "Packaging Solutions",
-    "Consumer Goods",
-    "Engineering Products",
-    "Customized Sourcing"
 ];
 
 const contact = {

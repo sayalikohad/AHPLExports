@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+
 import {
     ChevronDown,
     Menu,
@@ -14,11 +15,47 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [industryOpen, setIndustryOpen] = useState(false);
 
+    const currentPath = window.location.pathname;
+
+    const isHomePage = currentPath === "/";
+
+    const isAboutPage =
+        currentPath === "/about" ||
+        currentPath === "/about/";
+
     const industries = [
         "Agriculture",
         "Food & Spices",
         "Textiles",
         "Industrial Products"
+    ];
+
+    const navigationLinks = [
+        {
+            name: "Home",
+            href: "/",
+            active: isHomePage
+        },
+        {
+            name: "About Us",
+            href: "/about",
+            active: isAboutPage
+        },
+        {
+            name: "Industries",
+            href: "/#industries",
+            active: false
+        },
+        {
+            name: "Blog",
+            href: "/#blog",
+            active: false
+        },
+        {
+            name: "Contact Us",
+            href: "/#contact",
+            active: false
+        }
     ];
 
     return (
@@ -29,7 +66,7 @@ export default function Header() {
 
                 {/* Logo */}
 
-                <a href="#home" className="shrink-0">
+                <a href="/" className="shrink-0">
 
                     <img
                         src={logo}
@@ -39,34 +76,65 @@ export default function Header() {
 
                 </a>
 
+
                 {/* Desktop Navigation */}
 
                 <nav className="hidden lg:flex items-center
                                 desktop-navigation">
 
-                    <a href="#home"
-                       className="text-[#ff2056]">
+                    {/* Home */}
+
+                    <a
+                        href="/"
+                        aria-current={isHomePage ? "page" : undefined}
+                        className={
+                            isHomePage
+                                ? "text-[#ff2056]"
+                                : "nav-link"
+                        }
+                    >
                         Home
                     </a>
 
-                    <a href="#about" className="nav-link">
+
+                    {/* About Us */}
+
+                    <a
+                        href="/about"
+                        aria-current={isAboutPage ? "page" : undefined}
+                        className={
+                            isAboutPage
+                                ? "text-[#ff2056]"
+                                : "nav-link"
+                        }
+                    >
                         About Us
                     </a>
+
+
+                    {/* Industries Dropdown */}
 
                     <div className="relative">
 
                         <button
                             type="button"
-                            onClick={() => setIndustryOpen(!industryOpen)}
+                            onClick={() =>
+                                setIndustryOpen(!industryOpen)
+                            }
                             aria-expanded={industryOpen}
-                            className="nav-link flex items-center gap-1">
+                            className="nav-link flex items-center gap-1"
+                        >
 
                             Industries
 
                             <ChevronDown
                                 size={16}
                                 className={`transition-transform
-                                    ${industryOpen ? "rotate-180" : ""}`}
+                                    ${
+                                    industryOpen
+                                        ? "rotate-180"
+                                        : ""
+                                }`}
                             />
 
                         </button>
@@ -82,11 +150,15 @@ export default function Header() {
 
                                     <a
                                         key={item}
-                                        href="#industries"
-                                        onClick={() => setIndustryOpen(false)}
-                                        className="block rounded-lg px-4 py-3
-                                                   text-sm hover:bg-pink-50
-                                                   hover:text-[#ff2056]">
+                                        href="/#industries"
+                                        onClick={() =>
+                                            setIndustryOpen(false)
+                                        }
+                                        className="block rounded-lg
+                                                   px-4 py-3 text-sm
+                                                   hover:bg-pink-50
+                                                   hover:text-[#ff2056]"
+                                    >
 
                                         {item}
 
@@ -100,46 +172,71 @@ export default function Header() {
 
                     </div>
 
-                    <a href="#blog" className="nav-link">
+
+                    {/* Blog */}
+
+                    <a
+                        href="/#blog"
+                        className="nav-link"
+                    >
                         Blog
                     </a>
 
-                    <a href="#contact" className="nav-link">
+
+                    {/* Contact Us */}
+
+                    <a
+                        href="/#contact"
+                        className="nav-link"
+                    >
                         Contact Us
                     </a>
 
                 </nav>
 
+
                 {/* Desktop CTA */}
 
                 <div className="hidden lg:block">
 
-                    <a href="#quote" className="quote-button">
+                    <a
+                        href="/#quote"
+                        className="quote-button"
+                    >
 
                         Get a Quote
 
                         <span className="button-icon">
-                            <Send size={14} fill="currentColor" />
+
+                            <Send
+                                size={14}
+                                fill="currentColor"
+                            />
+
                         </span>
 
                     </a>
 
                 </div>
 
-                {/* Mobile Menu */}
+
+                {/* Mobile Menu Toggle */}
 
                 <button
                     type="button"
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-expanded={menuOpen}
                     aria-label="Toggle navigation"
-                    className="lg:hidden text-[#102b50]">
+                    className="lg:hidden text-[#102b50]"
+                >
 
                     {menuOpen
                         ? <X size={28} />
-                        : <Menu size={28} />}
+                        : <Menu size={28} />
+                    }
 
                 </button>
+
 
                 {/* Mobile Navigation */}
 
@@ -151,35 +248,48 @@ export default function Header() {
                                     lg:hidden flex flex-col gap-5
                                     dropdown-animation">
 
-                        {[
-                            ["Home", "#home"],
-                            ["About Us", "#about"],
-                            ["Industries", "#industries"],
-                            ["Blog", "#blog"],
-                            ["Contact Us", "#contact"]
-                        ].map(([name, href]) => (
+                        {navigationLinks.map(link => (
 
                             <a
-                                key={name}
-                                href={href}
+                                key={link.name}
+                                href={link.href}
                                 onClick={() => setMenuOpen(false)}
-                                className="font-medium hover:text-[#ff2056]">
+                                aria-current={
+                                    link.active ? "page" : undefined
+                                }
+                                className={`font-medium
+                                    hover:text-[#ff2056]
+                                    ${
+                                    link.active
+                                        ? "text-[#ff2056]"
+                                        : "text-[#102b50]"
+                                }`}
+                            >
 
-                                {name}
+                                {link.name}
 
                             </a>
 
                         ))}
 
+
+                        {/* Mobile CTA */}
+
                         <a
-                            href="#quote"
+                            href="/#quote"
                             onClick={() => setMenuOpen(false)}
-                            className="quote-button justify-center">
+                            className="quote-button justify-center"
+                        >
 
                             Get a Quote
 
                             <span className="button-icon">
-                                <Send size={14} />
+
+                                <Send
+                                    size={14}
+                                    fill="currentColor"
+                                />
+
                             </span>
 
                         </a>
@@ -193,4 +303,5 @@ export default function Header() {
         </header>
 
     );
+
 }

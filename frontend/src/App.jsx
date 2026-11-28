@@ -13,10 +13,18 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
+import AboutPage from "./pages/AboutPage";
+
 function App() {
 
     const [company, setCompany] = useState(null);
     const [error, setError] = useState("");
+
+    const isAboutPage =
+        window.location.pathname === "/about" ||
+        window.location.pathname === "/about/";
+
+    // Java Backend API Connection
 
     useEffect(() => {
 
@@ -24,11 +32,9 @@ function App() {
             .then(response => {
 
                 if (!response.ok) {
-
                     throw new Error(
                         "Java backend connection failed"
                     );
-
                 }
 
                 return response.json();
@@ -47,29 +53,47 @@ function App() {
 
             <main>
 
-                <Hero company={company} />
+                {isAboutPage ? (
 
-                <About company={company} />
+                    /* ABOUT US PAGE */
 
-                <Statistics />
+                    <AboutPage />
 
-                <Products />
+                ) : (
 
-                <Certifications />
+                    /* HOME PAGE */
 
-                <WhyChooseUs />
+                    <>
 
-                <Testimonials />
+                        <Hero company={company} />
 
-                <Blog />
+                        <About company={company} />
 
-                <Contact />
+                        <Statistics />
 
-                {error && (
+                        <Products />
 
-                    <p className="bg-red-50 text-red-600 text-center p-3">
-                        {error}
-                    </p>
+                        <Certifications />
+
+                        <WhyChooseUs />
+
+                        <Testimonials />
+
+                        <Blog />
+
+                        <Contact />
+
+                        {error && (
+
+                            <p className="bg-red-50 text-red-600 text-center p-3">
+
+                                {error}
+
+                            </p>
+
+                        )}
+
+                    </>
 
                 )}
 
@@ -80,6 +104,7 @@ function App() {
         </div>
 
     );
+
 }
 
 export default App;

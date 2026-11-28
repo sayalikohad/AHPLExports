@@ -3,6 +3,14 @@
     {
       "source": "/api/:path*",
       "destination": "https://ahplexports.onrender.com/api/:path*"
+    },
+    {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about/",
+      "destination": "/index.html"
     }
   ]
 }
